@@ -30,8 +30,12 @@ export default function FloatingPillBar() {
     const hero = document.getElementById("home");
     if (!hero) return;
     const observer = new IntersectionObserver(
-      ([entry]) => setVisible(!entry.isIntersecting),
-      { threshold: 0.1 }
+      ([entry]) => {
+        // Show pill bar only when hero is mostly out of view (bounding rect top < -300)
+        const isPastHero = entry.boundingClientRect.bottom < 300;
+        setVisible(isPastHero);
+      },
+      { threshold: [0, 0.25, 0.5, 0.75, 1.0] }
     );
     observer.observe(hero);
     return () => observer.disconnect();
