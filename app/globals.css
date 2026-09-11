@@ -1,0 +1,73 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --ink: #0a0a0a;
+  --cream: #f5f3f0;
+  --gold: #f4b400;
+  --red: #e8392b;
+  --blue: #3457d5;
+  --green: #34a853;
+}
+
+html,
+body {
+  background: var(--ink);
+  color: var(--cream);
+  overflow-x: hidden;
+  cursor: none; /* custom cursor system replaces OS cursor on desktop */
+}
+
+@media (max-width: 768px) {
+  html,
+  body {
+    cursor: auto; /* keep native cursor on touch devices */
+  }
+}
+
+* {
+  scroll-behavior: smooth;
+}
+
+/* ---------- Marquee ---------- */
+.marquee-track {
+  display: flex;
+  width: max-content;
+  animation: marquee-scroll 18s linear infinite;
+}
+.marquee-track.reverse {
+  animation-direction: reverse;
+}
+@keyframes marquee-scroll {
+  from { transform: translateX(0); }
+  to { transform: translateX(-33.3333%); }
+}
+
+/* ---------- Outlined display type (marquee bands) ---------- */
+.text-outline {
+  -webkit-text-stroke: 2px var(--ink);
+  color: transparent;
+}
+
+/* ---------- Sticker rotation utility ---------- */
+.sticker {
+  transform: rotate(var(--rot, -4deg));
+}
+
+/* ---------- Accessibility baseline (§20) ---------- */
+:focus-visible {
+  outline: 2px solid var(--gold);
+  outline-offset: 2px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
