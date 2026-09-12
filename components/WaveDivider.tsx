@@ -10,21 +10,21 @@ type WaveDividerProps = {
  * Deliberately NOT scroll-animated — the "merge" effect comes from
  * layout/scroll-past positioning, not continuous recalculation (§21 perf).
  */
-export default function WaveDivider({ fill, flip = false }: WaveDividerProps) {
+export default function WaveDivider({ fill = "#D3C5F6", flip = false }: WaveDividerProps) {
   return (
     <div
-      className={`pointer-events-none relative h-24 w-full overflow-hidden md:h-32 ${
+      className={`pointer-events-none relative -mb-1 h-24 w-full overflow-hidden md:h-36 ${
         flip ? "rotate-180" : ""
       }`}
       aria-hidden="true"
     >
       <svg
-        viewBox="0 0 1440 160"
+        viewBox="0 0 2315 160"
         preserveAspectRatio="none"
         className="absolute inset-0 h-full w-full"
       >
         <path
-          d="M0,40 C 320,140 720,140 1440,20 L1440,160 L0,160 Z"
+          d="M-6 6 L311 47 C499 75 918 131 1092 121 C1309 108 1770 18 1987 6 C2205 -7 2373 6 2418 6 L2315 160 L0 160 Z"
           fill={fill}
         />
       </svg>

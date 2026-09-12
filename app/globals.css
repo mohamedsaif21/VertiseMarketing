@@ -3,18 +3,38 @@
 @tailwind utilities;
 
 :root {
-  --ink: #0a0a0a;
-  --cream: #f5f3f0;
-  --gold: #f4b400;
-  --red: #e8392b;
-  --blue: #3457d5;
-  --green: #34a853;
+  --brand-red: #EA4335;
+  --brand-yellow: #FBBC05;
+  --brand-green: #34A853;
+  --brand-blue: #4285F4;
+  --deep-navy: #15072F;
+  --dark-navy: #1A0B3D;
+  --soft-lavender: #D3C5F6;
+  --light-lavender: #EEE9FC;
+  --white: #FDFBFF;
+  --muted-text: #6F6685;
+
+  /* Backward-compatible aliases */
+  --midnight: #15072F;
+  --obsidian: #15072F;
+  --amethyst: #1A0B3D;
+  --lavender: #EEE9FC;
+  --softblue: #EEE9FC;
+  --cream: #FDFBFF;
+  --red: #EA4335;
+  --blue: #4285F4;
+  --green: #34A853;
+  --gold: #FBBC05;
+  --navy: #15072F;
+  --darknavy: #1A0B3D;
+  --ink: #15072F;
+  --deepink: #15072F;
 }
 
 html,
 body {
-  background: var(--ink);
-  color: var(--cream);
+  background: var(--deep-navy);
+  color: var(--white);
   overflow-x: hidden;
   cursor: none; /* custom cursor system replaces OS cursor on desktop */
 }
@@ -30,11 +50,29 @@ body {
   scroll-behavior: smooth;
 }
 
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: var(--deep-navy);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--dark-navy);
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--brand-red);
+}
+
 /* ---------- Marquee ---------- */
 .marquee-track {
   display: flex;
   width: max-content;
-  animation: marquee-scroll 18s linear infinite;
+  animation: marquee-scroll 24s linear infinite;
+}
+.marquee-track:hover {
+  animation-play-state: paused;
 }
 .marquee-track.reverse {
   animation-direction: reverse;
@@ -46,18 +84,163 @@ body {
 
 /* ---------- Outlined display type (marquee bands) ---------- */
 .text-outline {
-  -webkit-text-stroke: 2px var(--ink);
+  -webkit-text-stroke: 2px var(--midnight);
   color: transparent;
 }
 
-/* ---------- Sticker rotation utility ---------- */
-.sticker {
-  transform: rotate(var(--rot, -4deg));
+/* ---------- Crency-Style Organic Floating & Swaying Utilities ---------- */
+.space-float {
+  animation: spaceFloat 6s ease-in-out infinite alternate;
+}
+@keyframes spaceFloat {
+  0% { transform: translateY(0px) rotate(0deg); }
+  50% { transform: translateY(-12px) rotate(2deg); }
+  100% { transform: translateY(6px) rotate(-1.5deg); }
 }
 
-/* ---------- Accessibility baseline (§20) ---------- */
+.rotate-infinite {
+  animation: rotateInfinite 28s linear infinite;
+}
+.rotate-infinite-reverse {
+  animation: rotateInfinite 24s linear infinite reverse;
+}
+@keyframes rotateInfinite {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+.sway-slow {
+  animation: swaySlow 4s ease-in-out infinite alternate;
+}
+@keyframes swaySlow {
+  0% { transform: rotate(-5deg); }
+  100% { transform: rotate(5deg); }
+}
+
+.sticker {
+  transform: rotate(var(--rot, -4deg));
+  animation: float-badge 5s ease-in-out infinite alternate;
+}
+@keyframes float-badge {
+  0% { transform: rotate(var(--rot, -4deg)) translateY(0px); }
+  100% { transform: rotate(var(--rot, -4deg)) translateY(-10px); }
+}
+
+/* ---------- 3D Flip Card Utilities ---------- */
+.perspective-1000 {
+  perspective: 1000px;
+}
+.transform-style-3d {
+  transform-style: preserve-3d;
+}
+.backface-hidden {
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+}
+.rotate-y-180 {
+  transform: rotateY(180deg);
+}
+
+/* ---------- Glassmorphism & Card Glow Utilities ---------- */
+.glass-panel {
+  background: rgba(211, 197, 246, 0.05);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(211, 197, 246, 0.12);
+}
+
+.glass-panel-light {
+  background: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(21, 7, 52, 0.08);
+}
+
+.glow-card {
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.glow-card:hover {
+  box-shadow: 0 0 25px -4px rgba(234, 67, 53, 0.25);
+}
+
+.glow-card-red:hover {
+  box-shadow: 0 0 25px -4px rgba(234, 67, 53, 0.3);
+}
+
+.glow-card-blue:hover {
+  box-shadow: 0 0 25px -4px rgba(66, 133, 244, 0.3);
+}
+
+.glow-card-green:hover {
+  box-shadow: 0 0 25px -4px rgba(52, 168, 83, 0.3);
+}
+
+.glow-card-gold:hover,
+.glow-card-yellow:hover {
+  box-shadow: 0 0 25px -4px rgba(251, 188, 5, 0.3);
+}
+
+/* ---------- Ambient Cosmic Aurora Background Glows ---------- */
+@keyframes auroraPulse {
+  0%, 100% {
+    opacity: 0.35;
+    transform: scale(1) translate(0px, 0px);
+  }
+  33% {
+    opacity: 0.55;
+    transform: scale(1.1) translate(25px, -20px);
+  }
+  66% {
+    opacity: 0.45;
+    transform: scale(0.95) translate(-20px, 15px);
+  }
+}
+.animate-aurora-glow {
+  animation: auroraPulse 12s ease-in-out infinite;
+}
+
+/* ---------- Brand Color Cycle Animation ---------- */
+@keyframes brandColorCycle {
+  0%, 100% {
+    color: #EA4335; /* Red */
+  }
+  25% {
+    color: #FBBC05; /* Yellow */
+  }
+  50% {
+    color: #34A853; /* Green */
+  }
+  75% {
+    color: #4285F4; /* Blue */
+  }
+}
+.animate-brand-color-cycle {
+  animation: brandColorCycle 8s ease-in-out infinite;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.animate-fadeIn {
+  animation: fadeIn 0.4s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+/* ---------- Animated Line Stroke Keyframes ---------- */
+@keyframes drawStroke {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+.animate-draw-stroke {
+  stroke-dasharray: 2000;
+  stroke-dashoffset: 2000;
+  animation: drawStroke 3s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+/* ---------- Accessibility baseline ---------- */
 :focus-visible {
-  outline: 2px solid var(--gold);
+  outline: 2px solid var(--red);
   outline-offset: 2px;
 }
 
@@ -70,4 +253,16 @@ body {
     transition-duration: 0.01ms !important;
     scroll-behavior: auto !important;
   }
+  .sticker,
+  .space-float,
+  .rotate-infinite,
+  .sway-slow,
+  .animate-aurora-glow,
+  .animate-draw-stroke {
+    animation: none !important;
+  }
+  .marquee-track {
+    animation: none !important;
+  }
 }
+

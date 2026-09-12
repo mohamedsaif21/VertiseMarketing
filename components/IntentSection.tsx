@@ -6,101 +6,109 @@ const INTENTS = [
   {
     category: "Build",
     title: "Web & E-Commerce",
-    desc: "Custom websites, web applications, and high-converting e-commerce platforms.",
+    desc: "Custom websites, web applications, and high-converting e-commerce platforms engineered for conversion.",
     tags: ["Custom Websites", "Web Apps", "E-Commerce Stores"],
-    color: "gold",
-    border: "border-gold/30 hover:border-gold",
-    badgeBg: "bg-gold text-ink",
+    border: "border-[#D3C5F6]/60 hover:border-brand-red/60 hover:shadow-xl hover:shadow-brand-red/10",
+    badgeBg: "bg-brand-red/10 text-brand-red border border-brand-red/25",
+    accentColor: "text-brand-red",
     targetService: "#services",
+    icon: "💻",
   },
   {
     category: "Brand",
     title: "Identity & Media",
-    desc: "Brand identity, graphic design, commercial photography, and brand copy.",
+    desc: "Brand identity, graphic design, commercial photography, and compelling brand storytelling.",
     tags: ["Brand Identity", "Photography", "Copywriting"],
-    color: "red",
-    border: "border-red/30 hover:border-red",
-    badgeBg: "bg-red text-cream",
+    border: "border-[#D3C5F6]/60 hover:border-brand-yellow/60 hover:shadow-xl hover:shadow-brand-yellow/10",
+    badgeBg: "bg-brand-yellow/15 text-[#9E6E00] border border-brand-yellow/30",
+    accentColor: "text-[#B88200]",
     targetService: "#services",
+    icon: "🎨",
   },
   {
     category: "Grow",
     title: "SEO & Advertising",
-    desc: "SEO optimization, paid advertising campaigns, and strategic digital growth.",
+    desc: "Targeted SEO optimization, paid PPC & Meta advertising, and strategic digital marketing funnels.",
     tags: ["Search Engine Optimization", "Google & Meta Ads", "Email Marketing"],
-    color: "blue",
-    border: "border-blue/30 hover:border-blue",
-    badgeBg: "bg-blue text-cream",
+    border: "border-[#D3C5F6]/60 hover:border-brand-blue/60 hover:shadow-xl hover:shadow-brand-blue/10",
+    badgeBg: "bg-brand-blue/10 text-brand-blue border border-brand-blue/25",
+    accentColor: "text-brand-blue",
     targetService: "#services",
+    icon: "🚀",
   },
   {
     category: "Go Mobile",
     title: "Mobile Experiences",
     desc: "Native iOS & Android mobile apps, cross-platform experiences, and App Store Optimization.",
     tags: ["iOS & Android Apps", "ASO Optimization", "Mobile UI/UX"],
-    color: "green",
-    border: "border-green/30 hover:border-green",
-    badgeBg: "bg-green text-ink",
+    border: "border-[#D3C5F6]/60 hover:border-brand-green/60 hover:shadow-xl hover:shadow-brand-green/10",
+    badgeBg: "bg-brand-green/10 text-brand-green border border-brand-green/25",
+    accentColor: "text-brand-green",
     targetService: "#services",
+    icon: "📱",
   },
 ];
 
 export default function IntentSection() {
   return (
-    <section className="relative bg-ink px-6 py-24 text-cream md:px-12">
+    <section className="relative bg-light-lavender px-6 py-24 text-deep-navy md:px-12 md:py-32 overflow-hidden">
+      {/* Subtle Ambient Bright Glow Orbs */}
+      <div className="pointer-events-none absolute left-[5%] top-[15%] -z-10 h-[500px] w-[500px] rounded-full bg-white/40 blur-[130px]" />
+
       <div className="mx-auto max-w-7xl">
         <ScrollReveal direction="up">
-          <div className="flex flex-col items-center text-center mb-16">
-            <span className="text-xs font-semibold uppercase tracking-[0.2em] text-cream/50">
+          <div className="mb-16 flex flex-col items-center text-center">
+            <span className="rounded-full border border-deep-navy/15 bg-deep-navy/5 px-5 py-2 text-xs font-bold uppercase tracking-[0.2em] text-deep-navy/80 shadow-sm backdrop-blur">
               User-Intent Pathways
             </span>
-            <h2 className="mt-3 font-display text-3xl font-bold uppercase leading-tight tracking-tight text-cream md:text-5xl">
+            <h2 className="mt-4 font-display text-4xl font-extrabold uppercase leading-tight tracking-tight text-deep-navy sm:text-5xl md:text-6xl">
               What are you looking to build?
             </h2>
-            <p className="mt-4 max-w-2xl text-base text-cream/70">
+            <p className="mt-4 max-w-2xl text-base font-medium leading-relaxed text-muted-text md:text-lg">
               Select your primary goal to explore tailored digital marketing, design, and technical solutions.
             </p>
           </div>
         </ScrollReveal>
 
-        <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-4">
+        <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-4">
           {INTENTS.map((intent, i) => (
             <ScrollReveal key={intent.category} delay={i * 100} direction="up">
               <a
                 href={intent.targetService}
                 data-cursor="view"
-                className={`group flex h-full flex-col justify-between rounded-2xl border bg-white/[0.03] p-8 backdrop-blur transition-all duration-300 hover:-translate-y-1.5 hover:bg-white/[0.06] ${intent.border}`}
+                className={`group flex h-full flex-col justify-between rounded-2xl border bg-pure-white p-8 shadow-sm transition-all duration-300 hover:-translate-y-1.5 hover:shadow-xl ${intent.border}`}
               >
                 <div>
                   <div className="flex items-center justify-between">
-                    <span className={`rounded-full px-3 py-1 text-xs font-bold uppercase ${intent.badgeBg}`}>
-                      {intent.category}
+                    <span className={`inline-flex items-center gap-1.5 rounded-full px-3.5 py-1 text-xs font-bold uppercase ${intent.badgeBg}`}>
+                      <span>{intent.icon}</span>
+                      <span>{intent.category}</span>
                     </span>
-                    <span className="text-cream/30 transition-transform duration-300 group-hover:translate-x-1 group-hover:text-cream">
+                    <span className="flex h-9 w-9 items-center justify-center rounded-full bg-deep-navy/5 text-deep-navy/70 transition-all duration-300 group-hover:bg-deep-navy group-hover:text-pure-white group-hover:translate-x-1">
                       →
                     </span>
                   </div>
-                  <h3 className="mt-6 font-display text-xl font-bold uppercase tracking-tight text-cream">
+                  <h3 className="mt-8 font-display text-2xl font-bold uppercase tracking-tight text-deep-navy">
                     {intent.title}
                   </h3>
-                  <p className="mt-3 text-sm leading-relaxed text-cream/70">
+                  <p className="mt-3 text-sm font-normal leading-relaxed text-muted-text">
                     {intent.desc}
                   </p>
                 </div>
 
-                <div className="mt-8 border-t border-cream/10 pt-4">
+                <div className="mt-8 border-t border-deep-navy/10 pt-5">
                   <div className="flex flex-wrap gap-1.5">
                     {intent.tags.map((tag) => (
                       <span
                         key={tag}
-                        className="rounded-md bg-cream/10 px-2 py-0.5 text-[11px] font-medium text-cream/80"
+                        className="rounded-lg bg-deep-navy/5 px-2.5 py-1 text-[11px] font-semibold text-deep-navy/80 border border-deep-navy/5"
                       >
                         {tag}
                       </span>
                     ))}
                   </div>
-                  <span className="mt-4 inline-flex items-center gap-1 text-xs font-semibold text-gold transition-colors group-hover:text-white">
-                    Explore solutions →
+                  <span className={`mt-5 inline-flex items-center gap-1.5 text-xs font-bold ${intent.accentColor} transition-all group-hover:translate-x-1`}>
+                    Explore solutions <span>→</span>
                   </span>
                 </div>
               </a>
@@ -111,3 +119,4 @@ export default function IntentSection() {
     </section>
   );
 }
+

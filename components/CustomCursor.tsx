@@ -3,24 +3,27 @@
 import { useEffect, useRef, useState } from "react";
 import gsap from "gsap";
 
-// Cursor variants mapped to your logo's 4-color set instead of Crency's 6.
-// Tag any element with data-cursor="drag" | "like" | "stats" | "cta" to trigger.
-type CursorState = "default" | "drag" | "like" | "stats" | "cta";
+// Cursor variants mapped to Vertise's exact sampled colors:
+// Red #E12021 (primary), Blue #3758FB, Green #6AD049, Gold #FDD80E
+// Tag any element with data-cursor="drag" | "view" | "cta" | "stats" | "like" to trigger.
+type CursorState = "default" | "drag" | "view" | "like" | "stats" | "cta";
 
 const VARIANT_STYLES: Record<CursorState, string> = {
-  default: "bg-gold text-ink",
-  drag: "bg-red text-cream",
-  like: "bg-green text-ink",
-  stats: "bg-blue text-cream",
-  cta: "bg-red text-cream",
+  default: "bg-brand-red/80 text-pure-white scale-75 rounded-full ring-2 ring-pure-white/40",
+  cta: "bg-brand-red text-pure-white scale-110 rounded-2xl shadow-xl shadow-brand-red/40",
+  drag: "bg-brand-blue text-pure-white scale-110 rounded-2xl shadow-xl shadow-brand-blue/40",
+  view: "bg-brand-blue text-pure-white scale-105 rounded-2xl shadow-xl shadow-brand-blue/40",
+  stats: "bg-brand-green text-deep-navy scale-105 rounded-2xl shadow-xl shadow-brand-green/40 font-bold",
+  like: "bg-brand-red text-pure-white scale-110 rounded-full shadow-xl shadow-brand-red/40",
 };
 
 const VARIANT_LABEL: Record<CursorState, string> = {
-  default: "You",
-  drag: "Drag",
-  like: "♥",
-  stats: "▤",
+  default: "✦",
   cta: "→",
+  drag: "↔ Drag",
+  view: "View",
+  stats: "▤",
+  like: "♥",
 };
 
 export default function CustomCursor() {
@@ -32,12 +35,17 @@ export default function CustomCursor() {
   useEffect(() => {
     if (!cursorRef.current) return;
 
+    // Check prefers-reduced-motion
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+      return;
+    }
+
     quickX.current = gsap.quickTo(cursorRef.current, "x", {
-      duration: 0.35,
+      duration: 0.25,
       ease: "power3.out",
     });
     quickY.current = gsap.quickTo(cursorRef.current, "y", {
-      duration: 0.35,
+      duration: 0.25,
       ease: "power3.out",
     });
 
@@ -60,7 +68,7 @@ export default function CustomCursor() {
       className="pointer-events-none fixed left-0 top-0 z-[999] -translate-x-1/2 -translate-y-1/2 hidden md:block"
     >
       <div
-        className={`flex h-11 w-11 items-center justify-center rounded-2xl text-sm font-semibold shadow-lg transition-colors duration-150 ${VARIANT_STYLES[variant]}`}
+        className={`flex h-11 min-w-11 items-center justify-center px-2 text-xs font-bold tracking-tight backdrop-blur-sm transition-all duration-200 ${VARIANT_STYLES[variant]}`}
       >
         {VARIANT_LABEL[variant]}
       </div>

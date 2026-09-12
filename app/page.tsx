@@ -2,7 +2,6 @@ import dynamic from "next/dynamic";
 import Nav from "@/components/Nav";
 import Marquee from "@/components/Marquee";
 import WaveDivider from "@/components/WaveDivider";
-import { StickerBadge, DottedConnector } from "@/components/StickerBadge";
 import FloatingPillBar from "@/components/FloatingPillBar";
 import TrustStrip from "@/components/TrustStrip";
 import IntentSection from "@/components/IntentSection";
@@ -15,128 +14,121 @@ import FaqSection from "@/components/FaqSection";
 import FinalCta from "@/components/FinalCta";
 import ContactForm from "@/components/ContactForm";
 import Footer from "@/components/Footer";
+import TextSplitReveal from "@/components/TextSplitReveal";
+import HeroFloatingDecorations from "@/components/HeroFloatingDecorations";
+import HeroDrawnLine from "@/components/HeroDrawnLine";
 
 const HeroScene = dynamic(() => import("@/components/HeroScene"), { ssr: false });
 
 export default function Home() {
   return (
-    <main className="relative min-h-screen bg-ink">
-      {/* 1. NAVIGATION (§6) */}
+    <main className="relative min-h-screen bg-deep-navy selection:bg-brand-red selection:text-pure-white">
+      {/* 1. NAVIGATION & PERSISTENT PILL BAR */}
       <Nav />
       <FloatingPillBar />
 
-      {/* 2. HERO (§7) */}
-      <section id="home" className="relative flex min-h-[90vh] flex-col items-center justify-center overflow-hidden px-6 pt-12 text-center">
+      {/* 2. HERO SECTION */}
+      <section
+        id="home"
+        className="relative flex min-h-[94vh] flex-col items-center justify-center overflow-hidden px-6 pt-12 pb-20 text-center"
+      >
+        {/* Ambient Cosmic Aurora Gradient Glows (Crency Atmosphere) */}
+        <div className="pointer-events-none absolute left-1/2 top-1/2 -z-20 h-[680px] w-[680px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-gradient-to-tr from-red/25 via-[#4C3487]/40 to-blue/25 blur-[140px] animate-aurora-glow" />
+        <div className="pointer-events-none absolute right-[5%] top-[10%] -z-20 h-[380px] w-[380px] rounded-full bg-lavender/10 blur-[100px] animate-pulse-glow" />
+
+        {/* 3D Interlocking Rings & Cosmic Stardust Background */}
         <HeroScene />
 
-        <p className="relative z-10 mb-4 text-xs font-semibold uppercase tracking-[0.2em] text-cream/60">
-          Digital Marketing • Web • Branding
-        </p>
+        {/* Crency-Style Organic Floating & Swaying Badges */}
+        <HeroFloatingDecorations />
 
-        <h1 className="relative z-10 max-w-4xl font-display text-5xl font-bold uppercase leading-[0.95] tracking-tight text-cream md:text-7xl">
-          We build digital experiences
-          <br />
-          that help businesses grow.
-        </h1>
-
-        <p className="relative z-10 mt-6 max-w-xl text-base text-cream/70 md:text-lg">
-          From branding and websites to SEO, advertising and digital strategy,
-          Vertise helps businesses build a stronger digital presence and grow online.
-        </p>
-
-        {/* CTAs — wording locked per §7/§16/§17 */}
-        <div className="relative z-10 mt-8 flex flex-col gap-3 sm:flex-row">
-          <a
-            href="#contact"
-            data-cursor="cta"
-            className="rounded-full bg-red px-8 py-4 text-sm font-semibold text-cream transition-transform hover:scale-105 shadow-lg"
-          >
-            Start a project →
-          </a>
-          <a
-            href="#work"
-            data-cursor="drag"
-            className="rounded-full border border-cream/30 px-8 py-4 text-sm font-semibold text-cream transition-colors hover:border-gold hover:text-gold"
-          >
-            View our work
-          </a>
+        {/* Headline with Text-Split Reveal & Animated Drawn Contour Line */}
+        <div className="relative z-10 max-w-5xl">
+          <HeroDrawnLine />
+          <TextSplitReveal
+            as="h1"
+            text="We build digital experiences that help businesses grow."
+            className="font-display text-4xl font-extrabold uppercase leading-[0.92] tracking-tight text-pure-white sm:text-6xl md:text-7xl lg:text-8xl"
+            highlightWord="experiences"
+            highlightClass="animate-brand-color-cycle"
+          />
         </div>
       </section>
 
-      {/* 3. HERO → ABOUT SCROLL-MERGE TRANSITION (§4A) */}
-      <div className="relative">
-        <WaveDivider fill="#E8ECFB" />
-
-        {/* Sticker badges + dotted connectors sit at the seam per §4A/§8 */}
-        <div className="pointer-events-none absolute inset-0 hidden md:block">
-          <div className="absolute left-[10%] top-2">
-            <StickerBadge label="500+ websites built" shape="starburst" rotation={-6} bg="var(--gold)" />
-          </div>
-          <DottedConnector
-            path="M40,20 C 120,10 180,60 260,40"
-            className="left-[16%] top-0 h-24 w-40"
-          />
-          <div className="absolute right-[10%] -top-2">
-            <StickerBadge label="9 years of experience" shape="ribbon" rotation={5} bg="var(--blue)" textColor="#F5F3F0" />
-          </div>
-        </div>
+      {/* 3. HERO → ABOUT SCROLL-MERGE TRANSITION (Crency Fluid Wave in Light Lavender #EEE9FC) */}
+      <div className="relative z-20">
+        <WaveDivider fill="#EEE9FC" />
       </div>
 
-      {/* 4. ABOUT / BIG STATEMENT (§5) */}
-      <section id="about" className="relative bg-[#E8ECFB] px-6 pb-16 pt-4 text-center md:px-12">
-        <p className="mb-2 text-xs font-semibold uppercase tracking-[0.2em] text-[#12142B]/50">
-          About us
-        </p>
-        <h2 className="mx-auto max-w-5xl font-display text-4xl font-bold uppercase leading-[0.95] tracking-tight text-[#12142B] md:text-6xl">
-          Brands and digital products
+      {/* 4. ABOUT & CREDIBILITY STAGE (Light Lavender Background #EEE9FC) */}
+      <section id="about" className="relative bg-light-lavender px-6 pb-12 pt-6 text-center md:px-12 md:pb-16">
+        <div className="mx-auto max-w-6xl">
           <br />
-          that scale.
-        </h2>
-        <p className="mx-auto mt-6 max-w-xl text-[#12142B]/70">
-          Vertise is a digital marketing and web design studio — branding,
-          development, content and growth under one team.
-        </p>
+          <TextSplitReveal
+            as="h2"
+            text="Brands and digital products that scale."
+            className="mx-auto max-w-5xl font-display text-4xl font-extrabold uppercase leading-[0.95] tracking-tight text-deep-navy sm:text-6xl md:text-7xl"
+            highlightWord="scale."
+            highlightClass="text-brand-red"
+          />
+          <br />
+          <p className="mx-auto mt-6 max-w-2xl text-base font-medium leading-relaxed text-deep-navy/80 md:text-xl">
+            Vertise is a digital marketing and web design studio — combining brand strategy,
+            custom web engineering, content creation, and search growth under one dedicated team.
+          </p>
+        </div>
       </section>
 
-      {/* 5. TRUST / RESULTS STRIP (§8) */}
+      {/* 5. TRUST / RESULTS STRIP (10k+ AUDIENCE & RESULTS) */}
       <TrustStrip />
 
-      {/* 6. MARQUEE TICKER DIVIDERS (§4) */}
-      <div className="flex flex-col">
-        <Marquee text="IDENTITY" bg="gold" />
-        <Marquee text="STRATEGY" bg="red" reverse />
-        <Marquee text="RESULTS" bg="blue" />
-      </div>
-
-      {/* 7. WHAT DO YOU NEED? INTENT PATHWAYS (§9) */}
+      {/* 6. WHAT DO YOU NEED? INTENT PATHWAYS (Luminous Lavender) */}
       <IntentSection />
 
-      {/* 8. SERVICES GRID & INTERACTIVE MODAL (§10) */}
-      <ServicesSection />
-
-      {/* 9. HOW WE WORK PROCESS (§11) */}
-      <ProcessSection />
-
-      {/* 10. SELECTED WORK PORTFOLIO (§12) */}
-      <PortfolioSection />
-
-      {/* 11. WHY VERTISE? 4 PILLARS (§14) */}
+      {/* 7. WHY VERTISE? 4 PILLARS (Lavender) */}
       <WhyVertiseSection />
 
-      {/* 12. TRUSTED BY BUSINESSES & TESTIMONIALS (§13) */}
+      {/* 8. HOW WE WORK PROCESS (Light Lavender) */}
+      <ProcessSection />
+
+      {/* 9. MARQUEE TICKER BANDS (Logo Color Accents: IDENTITY, STRATEGY, RESULTS) */}
+      <div className="flex flex-col w-full overflow-hidden z-20">
+        <Marquee text="IDENTITY" bg="red" />
+        <Marquee text="STRATEGY" bg="blue" reverse />
+        <Marquee text="RESULTS" bg="green" />
+      </div>
+
+      {/* 10. SERVICES GRID WITH 3D FLIP CARDS (Deep Navy) */}
+      <ServicesSection />
+
+      {/* 11. SELECTED WORK PORTFOLIO WITH DRAG-SCROLL (Deep Navy) */}
+      <PortfolioSection />
+
+      {/* 12. TRUSTED BY BUSINESSES & TESTIMONIALS (Deep Navy) */}
       <TestimonialsSection />
 
-      {/* 13. FAQ ACCORDION (§15) */}
+      {/* TRANSITION: DEEP NAVY → FAQ (LIGHT LAVENDER WAVE) */}
+      <div className="relative z-20 bg-deep-navy">
+        <WaveDivider fill="#EEE9FC" />
+      </div>
+
+      {/* 13. FAQ ACCORDION (Light Lavender) */}
       <FaqSection />
 
-      {/* 14. FINAL CTA BANNER (§16) */}
+      {/* TRANSITION: FAQ (LIGHT LAVENDER) → FINAL CTA (DEEP NAVY WAVE) */}
+      <div className="relative z-20 bg-light-lavender">
+        <WaveDivider fill="#15072F" />
+      </div>
+
+      {/* 14. FINAL CTA BANNER (Deep Navy) */}
       <FinalCta />
 
-      {/* 15. CONTACT FORM (§17) */}
+      {/* 15. CONTACT FORM (Deep Navy) */}
       <ContactForm />
 
-      {/* 16. FOOTER (§18) */}
+      {/* 16. FOOTER (Deep Navy) */}
       <Footer />
     </main>
   );
 }
+

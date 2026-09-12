@@ -1,17 +1,17 @@
 import type { Metadata } from "next";
-import { Space_Grotesk, Manrope } from "next/font/google";
+import { Bricolage_Grotesque, Manrope } from "next/font/google";
 import "./globals.css";
 import CustomCursor from "@/components/CustomCursor";
 
-const display = Space_Grotesk({
+const display = Bricolage_Grotesque({
   subsets: ["latin"],
-  weight: ["500", "700"],
+  weight: ["500", "700", "800"],
   variable: "--font-display",
 });
 
 const body = Manrope({
   subsets: ["latin"],
-  weight: ["400", "500", "600"],
+  weight: ["400", "500", "600", "700"],
   variable: "--font-body",
 });
 
@@ -64,7 +64,7 @@ const jsonLd = {
     addressRegion: "Tamil Nadu",
     addressCountry: "IN",
   },
-  telephone: "+91-87781-47182",
+  telephone: "+91-90435-69743",
   email: "vertice.digitalmanagement@gmail.com",
   url: "https://vertisemarketing.com",
   priceRange: "₹₹",
