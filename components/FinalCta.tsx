@@ -2,6 +2,7 @@
 
 import ScrollReveal from "./ScrollReveal";
 import MagneticButton from "./MagneticButton";
+import ThreeTierHeadline from "./ThreeTierHeadline";
 
 export default function FinalCta() {
   return (
@@ -17,10 +18,15 @@ export default function FinalCta() {
           <span className="inline-block rounded-full bg-brand-red/15 border border-brand-red/30 px-4 py-1.5 text-xs font-bold uppercase tracking-[0.2em] text-pure-white shadow-md shadow-brand-red/20">
             Ready to Build?
           </span>
-          <h2 className="mt-6 font-display text-4xl font-extrabold uppercase leading-tight tracking-tight text-pure-white sm:text-5xl md:text-6xl">
-            Have A Project In Mind?
-          </h2>
-          <p className="mx-auto mt-4 max-w-2xl text-base font-normal leading-relaxed text-lavender/80 md:text-lg">
+          <ThreeTierHeadline
+            as="h2"
+            tier1="Have A"
+            tier2="Project"
+            tier3="In Mind?"
+            theme="dark"
+            className="mt-6 text-4xl sm:text-5xl md:text-6xl"
+          />
+          <p className="mx-auto mt-6 max-w-2xl text-base font-normal leading-relaxed text-lavender/80 md:text-lg">
             Tell us what you're building, what you're trying to achieve, and where you need help. We'll respond within 24 hours with ideas and a clear plan.
           </p>
 

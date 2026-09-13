@@ -56,8 +56,10 @@ export default function FaqSection() {
             <span className="rounded-full border border-deep-navy/15 bg-deep-navy/5 px-4 py-1.5 text-xs font-bold uppercase tracking-[0.2em] text-deep-navy/80 shadow-sm backdrop-blur">
               Got Questions?
             </span>
-            <h2 className="mt-4 font-display text-4xl font-extrabold uppercase leading-tight tracking-tight text-deep-navy sm:text-5xl md:text-6xl">
-              Frequently Asked Questions
+            <h2 className="mt-4 font-display text-4xl font-extrabold uppercase leading-tight tracking-tight sm:text-5xl md:text-6xl">
+              <span className="text-deep-navy">Frequently </span>
+              <span className="text-ghost-light hover:text-deep-navy transition-all duration-300">Asked </span>
+              <span className="text-brand-red">Questions</span>
             </h2>
             <p className="mt-4 text-base font-medium leading-relaxed text-muted-text md:text-lg">
               Everything you need to know about working with Vertise and starting your project.
@@ -82,6 +84,7 @@ export default function FaqSection() {
                   <button
                     id={headerId}
                     type="button"
+                    data-cursor="view"
                     onClick={() => toggle(i)}
                     className="flex w-full items-center justify-between p-6 text-left focus-visible:outline focus-visible:outline-2 focus-visible:outline-brand-red md:p-7"
                     aria-expanded={isOpen}
