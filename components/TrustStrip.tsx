@@ -49,8 +49,10 @@ export default function TrustStrip() {
         <ScrollReveal direction="up">
           <div className="mb-14 flex flex-col items-center text-center">
         
-            <h3 className="mt-4 font-display text-3xl font-extrabold uppercase tracking-tight text-deep-navy md:text-4xl lg:text-5xl">
-              Numbers that speak for our commitment
+            <h3 className="mt-4 font-display text-3xl font-extrabold uppercase tracking-tight sm:text-4xl md:text-5xl">
+              <span className="text-deep-navy">Numbers that speak </span>
+              <span className="text-ghost-light hover:text-deep-navy transition-all duration-300">for our </span>
+              <span className="text-brand-red">commitment</span>
             </h3>
           </div>
         </ScrollReveal>

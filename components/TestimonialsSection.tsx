@@ -56,8 +56,9 @@ export default function TestimonialsSection() {
             <span className="text-xs font-semibold uppercase tracking-[0.2em] text-lavender/60">
               Client Trust & Proof
             </span>
-            <h2 className="mt-3 font-display text-4xl font-bold uppercase leading-tight tracking-tight text-pure-white md:text-6xl">
-              Trusted By Businesses
+            <h2 className="mt-3 font-display text-4xl font-bold uppercase leading-tight tracking-tight sm:text-5xl md:text-6xl">
+              <span className="text-pure-white">Trusted By </span>
+              <span className="text-ghost-dark hover:text-pure-white transition-all duration-300">Businesses</span>
             </h2>
             <p className="mt-4 max-w-xl text-base text-lavender/80">
               Partnering with ambitious companies to build distinctive digital experiences and measurable commercial growth.
@@ -67,7 +68,10 @@ export default function TestimonialsSection() {
 
         {/* Client Logos Drag-Scroll Carousel (Animation #7) */}
         <ScrollReveal direction="up">
-          <div className="mb-16 rounded-2xl border border-white/10 bg-white/[0.03] p-6 backdrop-blur">
+          <div
+            data-cursor="drag"
+            className="mb-16 rounded-2xl border border-white/10 bg-white/[0.03] p-6 backdrop-blur cursor-grab active:cursor-grabbing"
+          >
             <p className="text-center text-xs font-bold uppercase tracking-widest text-lavender/50 mb-4">
               Brands & Companies We've Helped Scale • Drag to explore
             </p>
