@@ -27,6 +27,13 @@ export default function WaveDivider({ fill = "#D3C5F6", flip = false }: WaveDivi
           d="M-6 6 L311 47 C499 75 918 131 1092 121 C1309 108 1770 18 1987 6 C2205 -7 2373 6 2418 6 L2315 160 L0 160 Z"
           fill={fill}
         />
+        <path
+          d="M-6 6 L311 47 C499 75 918 131 1092 121 C1309 108 1770 18 1987 6 C2205 -7 2373 6 2418 6"
+          fill="none"
+          stroke={fill === "#EEE9FC" ? "rgba(255, 255, 255, 0.45)" : "rgba(211, 197, 246, 0.25)"}
+          strokeWidth="2.5"
+          className="opacity-75"
+        />
       </svg>
     </div>
   );
