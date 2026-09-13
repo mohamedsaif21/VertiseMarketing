@@ -58,8 +58,10 @@ export default function ProcessSection() {
             <span className="rounded-full border border-deep-navy/15 bg-deep-navy/5 px-4 py-1.5 text-xs font-bold uppercase tracking-[0.2em] text-deep-navy/80 shadow-sm backdrop-blur">
               Structured 4-Step Process
             </span>
-            <h2 className="mt-4 font-display text-4xl font-extrabold uppercase leading-tight tracking-tight text-deep-navy sm:text-5xl md:text-6xl">
-              From Idea To Impact
+            <h2 className="mt-4 font-display text-4xl font-extrabold uppercase leading-tight tracking-tight sm:text-5xl md:text-6xl">
+              <span className="text-deep-navy">From Idea </span>
+              <span className="text-ghost-light hover:text-deep-navy transition-all duration-300">To </span>
+              <span className="text-brand-blue">Impact</span>
             </h2>
             <p className="mt-4 max-w-2xl text-base font-medium leading-relaxed text-muted-text md:text-lg">
               What happens after you reach out? Here is our deliberate roadmap for taking your project from concept to market scale.
