@@ -1,6 +1,6 @@
 # Your Agency — Site Scaffold
 
-Next.js + Three.js + GSAP, styled with a color system derived from your logo
+Next.js + Three.js(working on) + GSAP, styled with a color system derived from your logo
 (gold / red / blue / green on a near-black canvas), structured after the
 Crency design-pattern reference doc.
 
@@ -20,7 +20,7 @@ Crency design-pattern reference doc.
 npm install
 npm run dev
 ```
-Then open http://localhost:3000
+
 
 ## Next steps (not yet built)
 - Full-screen circular nav overlay (§5.2 of the design doc)
