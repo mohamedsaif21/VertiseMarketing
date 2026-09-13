@@ -2,6 +2,7 @@
 
 import ScrollReveal from "./ScrollReveal";
 import MagneticButton from "./MagneticButton";
+import ThreeTierHeadline from "./ThreeTierHeadline";
 
 export default function ContactForm() {
   return (
@@ -21,10 +22,15 @@ export default function ContactForm() {
 
         <ScrollReveal direction="up">
           <div className="rounded-3xl border border-white/15 bg-gradient-to-br from-dark-navy/95 via-dark-navy/85 to-deep-navy p-8 md:p-14 shadow-2xl backdrop-blur-2xl">
-            {/* Headline & Description */}
-            <h2 className="font-display text-3xl font-extrabold uppercase tracking-tight text-pure-white sm:text-5xl leading-tight">
-              Ready to build, automate, and scale?
-            </h2>
+            {/* Headline with Three-Tier Typography Treatment & Description */}
+            <ThreeTierHeadline
+              as="h2"
+              tier1="Ready to build,"
+              tier2="automate,"
+              tier3="and scale?"
+              theme="dark"
+              className="text-3xl sm:text-5xl"
+            />
 
             <p className="mx-auto mt-5 max-w-2xl text-base font-medium leading-relaxed text-lavender/90 sm:text-lg">
               Book a free consultation, request a proposal, or schedule a 1Grow demo. We respond within one business day.

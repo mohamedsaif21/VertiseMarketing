@@ -17,6 +17,7 @@ import Footer from "@/components/Footer";
 import TextSplitReveal from "@/components/TextSplitReveal";
 import HeroFloatingDecorations from "@/components/HeroFloatingDecorations";
 import HeroDrawnLine from "@/components/HeroDrawnLine";
+import ThreeTierHeadline from "@/components/ThreeTierHeadline";
 
 const HeroScene = dynamic(() => import("@/components/HeroScene"), { ssr: false });
 
@@ -42,15 +43,16 @@ export default function Home() {
         {/* Crency-Style Organic Floating & Swaying Badges */}
         <HeroFloatingDecorations />
 
-        {/* Headline with Text-Split Reveal & Animated Drawn Contour Line */}
+        {/* Headline with Three-Tier Typography Treatment & Animated Drawn Contour Line */}
         <div className="relative z-10 max-w-5xl">
           <HeroDrawnLine />
-          <TextSplitReveal
+          <ThreeTierHeadline
             as="h1"
-            text="We build digital experiences that help businesses grow."
-            className="font-display text-4xl font-extrabold uppercase leading-[0.92] tracking-tight text-pure-white sm:text-6xl md:text-7xl lg:text-8xl"
-            highlightWord="experiences"
-            highlightClass="animate-brand-color-cycle"
+            tier1="We build"
+            tier2="digital experiences"
+            tier3="that help businesses grow."
+            theme="dark"
+            className="text-4xl sm:text-6xl md:text-7xl lg:text-8xl"
           />
         </div>
       </section>
@@ -64,12 +66,13 @@ export default function Home() {
       <section id="about" className="relative bg-light-lavender px-6 pb-12 pt-6 text-center md:px-12 md:pb-16">
         <div className="mx-auto max-w-6xl">
           <br />
-          <TextSplitReveal
+          <ThreeTierHeadline
             as="h2"
-            text="Brands and digital products that scale."
-            className="mx-auto max-w-5xl font-display text-4xl font-extrabold uppercase leading-[0.95] tracking-tight text-deep-navy sm:text-6xl md:text-7xl"
-            highlightWord="scale."
-            highlightClass="text-brand-red"
+            tier1="Brands and"
+            tier2="digital products"
+            tier3="that scale."
+            theme="light"
+            className="text-4xl sm:text-6xl md:text-7xl"
           />
           <br />
           <p className="mx-auto mt-6 max-w-2xl text-base font-medium leading-relaxed text-deep-navy/80 md:text-xl">
