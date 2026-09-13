@@ -98,8 +98,9 @@ export default function PortfolioSection() {
             <span className="text-xs font-semibold uppercase tracking-[0.2em] text-lavender/60">
               Featured Case Studies & Work
             </span>
-            <h2 className="mt-3 font-display text-4xl font-bold uppercase leading-tight tracking-tight text-pure-white md:text-6xl">
-              Selected Work
+            <h2 className="mt-3 font-display text-4xl font-bold uppercase leading-tight tracking-tight sm:text-5xl md:text-6xl">
+              <span className="text-pure-white">Selected </span>
+              <span className="text-ghost-dark hover:text-pure-white transition-all duration-300">Work</span>
             </h2>
             <p className="mt-4 max-w-2xl text-base text-lavender/80">
               A showcase of client projects engineered for visual impact, high conversion, and sustained digital growth. Click and drag horizontally to explore.
@@ -112,6 +113,7 @@ export default function PortfolioSection() {
                   (cat) => (
                     <button
                       key={cat}
+                      data-cursor="select"
                       onClick={() => setActiveCategory(cat)}
                       className={`rounded-full px-5 py-2 text-xs font-bold transition-all duration-200 ${
                         activeCategory === cat
@@ -128,6 +130,7 @@ export default function PortfolioSection() {
               <div className="flex items-center rounded-full border border-lavender/20 bg-white/5 p-1">
                 <button
                   type="button"
+                  data-cursor="select"
                   onClick={() => setViewMode("carousel")}
                   className={`rounded-full px-3.5 py-1.5 text-xs font-bold transition-all ${
                     viewMode === "carousel" ? "bg-brand-red text-pure-white shadow" : "text-pure-white/60 hover:text-pure-white"
@@ -138,6 +141,7 @@ export default function PortfolioSection() {
                 </button>
                 <button
                   type="button"
+                  data-cursor="select"
                   onClick={() => setViewMode("grid")}
                   className={`rounded-full px-3.5 py-1.5 text-xs font-bold transition-all ${
                     viewMode === "grid" ? "bg-brand-red text-pure-white shadow" : "text-pure-white/60 hover:text-pure-white"
