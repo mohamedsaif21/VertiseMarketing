@@ -166,8 +166,9 @@ export default function ServicesSection() {
               </span>
             </div>
 
-            <h2 className="font-display text-4xl font-extrabold uppercase leading-none tracking-tight text-pure-white sm:text-5xl md:text-6xl">
-              Our <span className="text-transparent bg-clip-text bg-gradient-to-r from-pure-white via-light-lavender to-soft-lavender">Capabilities</span>
+            <h2 className="font-display text-4xl font-extrabold uppercase leading-none tracking-tight sm:text-5xl md:text-6xl">
+              <span className="text-pure-white">Our </span>
+              <span className="text-ghost-dark hover:text-pure-white transition-all duration-300">Capabilities</span>
             </h2>
 
             <p className="mt-4 max-w-2xl text-base font-normal leading-relaxed text-soft-lavender/85 md:text-lg">
@@ -213,6 +214,7 @@ export default function ServicesSection() {
                 return (
                   <button
                     key={cat.id}
+                    data-cursor="select"
                     onClick={() => setActiveCategory(cat.id)}
                     style={activeStyle}
                     className={`inline-flex items-center gap-2 rounded-full border px-4 py-2 text-xs font-bold uppercase tracking-wider transition-all duration-200 ${activeClasses}`}

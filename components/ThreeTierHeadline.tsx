@@ -73,9 +73,8 @@ export default function ThreeTierHeadline({
   const isDark = theme === "dark";
 
   return (
-    // @ts-expect-error polymorphic heading ref
     <Component
-      ref={containerRef}
+      ref={containerRef as unknown as React.RefObject<HTMLHeadingElement>}
       className={`flex flex-col font-display uppercase tracking-tight leading-[0.92] select-none ${alignClass} ${className}`}
     >
       {/* Tier 1: Solid Headline */}
