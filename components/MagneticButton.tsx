@@ -66,7 +66,7 @@ export default function MagneticButton<T extends ElementType = "button">({
 
   return (
     // @ts-expect-error dynamic element polymorphism ref
-    <Component ref={ref} className={`inline-block ${className}`} {...props}>
+    <Component ref={ref} className={`inline-block btn-sheen ${className}`} {...props}>
       {children}
     </Component>
   );
