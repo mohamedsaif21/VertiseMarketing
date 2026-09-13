@@ -22,7 +22,8 @@ export default function ServiceFlipCard({ service, onOpenModal }: ServiceFlipCar
 
   return (
     <div
-      className="group relative h-[430px] w-full perspective-1000 select-none"
+      data-cursor="flip"
+      className="group relative h-[430px] w-full perspective-1000 select-none cursor-pointer"
       tabIndex={0}
       role="region"
       aria-label={`${service.name} card. Press Enter to flip.`}
