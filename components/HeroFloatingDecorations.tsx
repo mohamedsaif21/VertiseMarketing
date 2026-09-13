@@ -23,7 +23,10 @@ export default function HeroFloatingDecorations() {
       style={{ transform: `translateY(${offsetY}px)` }}
     >
       {/* 1. Spinning Starburst Review Badge (Top Left) */}
-      <div className="absolute left-[6%] top-[18%] space-float">
+      <div
+        data-cursor="stats"
+        className="pointer-events-auto absolute left-[6%] top-[18%] space-float cursor-pointer transition-transform duration-300 hover:scale-110"
+      >
         <div className="relative flex items-center justify-center">
           <div className="rotate-infinite h-28 w-28 text-lavender/40">
             <svg viewBox="0 0 136 134" fill="currentColor" className="h-full w-full drop-shadow-xl">
@@ -37,7 +40,10 @@ export default function HeroFloatingDecorations() {
       </div>
 
       {/* 2. Swaying Pill Capsule (Top Right) */}
-      <div className="absolute right-[8%] top-[22%] sway-slow">
+      <div
+        data-cursor="view"
+        className="pointer-events-auto absolute right-[8%] top-[22%] sway-slow cursor-pointer transition-transform duration-300 hover:scale-105"
+      >
         <div className="flex items-center gap-2.5 rounded-full border border-lavender/30 bg-midnight/80 px-5 py-2.5 shadow-2xl backdrop-blur-xl">
           <span className="flex h-6 w-6 items-center justify-center rounded-full bg-brand-green text-xs font-bold text-midnight shadow-md shadow-brand-green/30">
             ⚡
@@ -49,7 +55,11 @@ export default function HeroFloatingDecorations() {
       </div>
 
       {/* 3. Decatop Audit Badge (Bottom Left) */}
-      <div className="absolute left-[8%] bottom-[20%] space-float" style={{ animationDelay: "-2.5s" }}>
+      <div
+        data-cursor="cta"
+        className="pointer-events-auto absolute left-[8%] bottom-[20%] space-float cursor-pointer transition-transform duration-300 hover:scale-105"
+        style={{ animationDelay: "-2.5s" }}
+      >
         <div className="flex items-center gap-3 rounded-2xl border border-brand-red/40 bg-brand-red/10 px-4 py-3 shadow-2xl backdrop-blur-xl">
           <span className="flex h-7 w-7 items-center justify-center rounded-xl bg-brand-red text-sm text-pure-white shadow-md shadow-brand-red/40">
             ✦
@@ -62,7 +72,11 @@ export default function HeroFloatingDecorations() {
       </div>
 
       {/* 4. Experience & Reach Pill (Bottom Right) */}
-      <div className="absolute right-[6%] bottom-[24%] space-float" style={{ animationDelay: "-4s" }}>
+      <div
+        data-cursor="stats"
+        className="pointer-events-auto absolute right-[6%] bottom-[24%] space-float cursor-pointer transition-transform duration-300 hover:scale-105"
+        style={{ animationDelay: "-4s" }}
+      >
         <div className="flex items-center gap-3 rounded-full border border-brand-blue/40 bg-midnight/80 px-5 py-3 shadow-2xl backdrop-blur-xl">
           <span className="flex h-7 w-7 items-center justify-center rounded-full bg-brand-blue text-xs font-bold text-pure-white shadow-md shadow-brand-blue/30">
             10k+
