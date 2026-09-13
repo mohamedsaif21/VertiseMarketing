@@ -1,6 +1,7 @@
 "use client";
 
 import ScrollReveal from "./ScrollReveal";
+import ThreeTierHeadline from "./ThreeTierHeadline";
 
 const INTENTS = [
   {
@@ -61,9 +62,14 @@ export default function IntentSection() {
             <span className="rounded-full border border-deep-navy/15 bg-deep-navy/5 px-5 py-2 text-xs font-bold uppercase tracking-[0.2em] text-deep-navy/80 shadow-sm backdrop-blur">
               User-Intent Pathways
             </span>
-            <h2 className="mt-4 font-display text-4xl font-extrabold uppercase leading-tight tracking-tight text-deep-navy sm:text-5xl md:text-6xl">
-              What are you looking to build?
-            </h2>
+            <ThreeTierHeadline
+              as="h2"
+              tier1="What are you"
+              tier2="looking"
+              tier3="to build?"
+              theme="light"
+              className="mt-4 text-4xl sm:text-5xl md:text-6xl"
+            />
             <p className="mt-4 max-w-2xl text-base font-medium leading-relaxed text-muted-text md:text-lg">
               Select your primary goal to explore tailored digital marketing, design, and technical solutions.
             </p>
@@ -75,7 +81,7 @@ export default function IntentSection() {
             <ScrollReveal key={intent.category} delay={i * 100} direction="up">
               <a
                 href={intent.targetService}
-                data-cursor="view"
+                data-cursor="select"
                 className={`group flex h-full flex-col justify-between rounded-2xl border bg-pure-white p-8 shadow-sm transition-all duration-300 hover:-translate-y-1.5 hover:shadow-xl ${intent.border}`}
               >
                 <div>
